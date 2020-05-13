@@ -24,7 +24,8 @@ const routes: Array<RouteConfig> = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
+  base: '/admin',
+  // base: process.env.BASE_URL,
   routes
 });
 

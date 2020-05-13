@@ -11,10 +11,12 @@ services:
         - ${APP_BACKEND_PORT}:80
       links:
         - fpm
+        - nginx-frontend
       volumes:
         - ${APP_PATH}:${APP_PATH_DOCKER}
       depends_on:
         - fpm
+        - nginx-frontend
       working_dir: ${APP_PATH_DOCKER}
   fpm:
       container_name: ${APP_NAME}-fpm
@@ -66,8 +68,6 @@ services:
     build:
       context: .
       dockerfile: docker/Frontend.Dockerfile
-    ports:
-      - ${APP_FRONTEND_PORT}:80
     working_dir: ${APP_PATH_DOCKER}
 
 #  scheduler:
