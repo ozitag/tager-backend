@@ -27,7 +27,11 @@ services:
       - db
     environment:
       CONTAINER_ROLE: fpm
-    command: php-fpm
+      WEB_DOCUMENT_ROOT: /var/www
+      PHP_MEMORY_LIMIT: 64M
+      PHP_UPLOAD_MAX_FILESIZE: 64M
+      PHP_POST_MAX_SIZE: 64M
+      PHP_MAX_EXECUTION_TIME: 18000
     networks:
       - app-network
 
@@ -47,6 +51,7 @@ services:
 #    command: php-fpm
 #    networks:
 #      - app-network
+
   db:
     container_name: ${APP_NAME}-db
     image: mysql:5.7
@@ -57,6 +62,8 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
     networks:
       - app-network
+
+
 #    networks:
 #        - app-network
 #  composer:

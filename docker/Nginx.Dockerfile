@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:stable-alpine
 
-ADD docker/conf/nginx-backend.conf /etc/nginx/conf.d/default.conf
+ADD docker/conf/nginx-main.conf /etc/nginx/conf.d/default.conf
 
