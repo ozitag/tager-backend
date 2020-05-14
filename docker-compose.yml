@@ -13,12 +13,23 @@ services:
       - ./src:/var/www
     depends_on:
 #      - fpm
-      - nginx-frontend
+      - backend
+      - frontend
     working_dir: /var/www
 #      networks:
 #        - app-network
 
-#  fpm:
+  backend:
+    container_name: ${APP_NAME}-backend
+    restart: always
+    working_dir: /var/www
+    build:
+      context: .
+      dockerfile: docker/Backend.Dockerfile
+    environment:
+      CONTAINER_ROLE: fpm
+
+  #  fpm:
 #    container_name: ${APP_NAME}-fpm
 #    restart: always
 #    working_dir: /var/www
@@ -67,13 +78,12 @@ services:
 #    networks:
 #      - app-network
 
-  nginx-frontend:
-    container_name: ${APP_NAME}-nginx-frontend
+  frontend:
+    container_name: ${APP_NAME}-frontend
     restart: always
     build:
       context: .
       dockerfile: docker/Frontend.Dockerfile
-    working_dir: /var/www
 #    networks:
 #      - app-network
 

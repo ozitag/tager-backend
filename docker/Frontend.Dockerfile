@@ -12,5 +12,4 @@ FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /var/www/app/dist /var/www/app/admin
 COPY ./docker/conf/nginx-frontend.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
