@@ -11,7 +11,7 @@ RUN composer install --ignore-platform-reqs
 COPY ./backend .
 
 # production stage
-FROM php:7.4-fpm-alpine as production-stage
+FROM php:7.4-fpm as production-stage
 
 # PHP packages
 RUN apt-get update && \
