@@ -9,25 +9,27 @@ services:
       dockerfile: docker/Nginx.Dockerfile
     ports:
       - ${APP_PORT}:80
-    volumes:
-      - ./src:/var/www
     depends_on:
-#      - fpm
       - backend
-      - frontend
     working_dir: /var/www
-#      networks:
-#        - app-network
+    networks:
+      - app-network
 
   backend:
     container_name: ${APP_NAME}-backend
     restart: always
     working_dir: /var/www
+    tty: true
     build:
       context: .
       dockerfile: docker/Backend.Dockerfile
+    depends_on:
+      - db
     environment:
       CONTAINER_ROLE: fpm
+    command: php-fpm
+    networks:
+      - app-network
 
   #  fpm:
 #    container_name: ${APP_NAME}-fpm
@@ -45,14 +47,16 @@ services:
 #    command: php-fpm
 #    networks:
 #      - app-network
-#  db:
-#    container_name: ${APP_NAME}-db
-#    image: mysql:5.7
+  db:
+    container_name: ${APP_NAME}-db
+    image: mysql:5.7
 #    ports:
 #      - ${MYSQL_EXTERNAL_PORT}:3306
-#    environment:
-#      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-#      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    networks:
+      - app-network
 #    networks:
 #        - app-network
 #  composer:
@@ -84,12 +88,12 @@ services:
     build:
       context: .
       dockerfile: docker/Frontend.Dockerfile
-#    networks:
-#      - app-network
+    networks:
+      - app-network
 
-#networks:
-#  app-network:
-#    driver: bridge
+networks:
+  app-network:
+    driver: bridge
 #  scheduler:
 #    build:
 #      context: .

@@ -8,7 +8,7 @@ if [ "$role" = "fpm" ]; then
     chmod 777 -R storage
     chmod 777 -R vendor
 
-    php artisan migrate
+    php artisan migrate --force
 
     exec "$@"
 
