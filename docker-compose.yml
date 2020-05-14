@@ -14,7 +14,6 @@ services:
     working_dir: /var/www
     networks:
       - app-network
-
   backend:
     container_name: ${APP_NAME}-backend
     restart: always
@@ -27,68 +26,21 @@ services:
       - db
     environment:
       CONTAINER_ROLE: fpm
-      WEB_DOCUMENT_ROOT: /var/www/public
+      WEB_DOCUMENT_ROOT: /var/www/app/public
       PHP_MEMORY_LIMIT: 64M
       PHP_UPLOAD_MAX_FILESIZE: 64M
       PHP_POST_MAX_SIZE: 64M
       PHP_MAX_EXECUTION_TIME: 18000
     networks:
       - app-network
-
-  #  fpm:
-#    container_name: ${APP_NAME}-fpm
-#    restart: always
-#    working_dir: /var/www
-#    build:
-#      context: .
-#      dockerfile: docker/Fpm.Dockerfile
-#    volumes:
-#      - ./src:/var/www
-##      extra_hosts:
-##        - "dockerhost:${LOCAL_IP}"
-#    environment:
-#      CONTAINER_ROLE: fpm
-#    command: php-fpm
-#    networks:
-#      - app-network
-
   db:
     container_name: ${APP_NAME}-db
     image: mysql:5.7
-#    ports:
-#      - ${MYSQL_EXTERNAL_PORT}:3306
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
     networks:
       - app-network
-
-
-#    networks:
-#        - app-network
-#  composer:
-#    container_name: ${APP_NAME}-composer
-#    image: composer:1.9
-#    volumes:
-#      - ./src:/var/www
-#    working_dir: /var/www
-#    command: composer install --ignore-platform-reqs
-#  queue:
-#    build:
-#      context: .
-#      dockerfile: docker/Queue.Dockerfile
-#    restart: always
-#    container_name: ${APP_NAME}-queue
-#    working_dir: /var/www
-#    depends_on:
-#      - fpm
-#    volumes:
-#      - ./src:/var/www
-#    environment:
-#      CONTAINER_ROLE: queue
-#    networks:
-#      - app-network
-
   frontend:
     container_name: ${APP_NAME}-frontend
     restart: always
@@ -97,22 +49,8 @@ services:
       dockerfile: docker/Frontend.Dockerfile
     networks:
       - app-network
-
 networks:
   app-network:
     driver: bridge
-#  scheduler:
-#    build:
-#      context: .
-#      dockerfile: docker/Queue.Dockerfile
-#    restart: always
-#    container_name: ${APP_NAME}-scheduler
-#    working_dir: /var/www
-#    depends_on:
-#      - fpm
-#    volumes:
-#      - ./src:/var/www
-#    environment:
-#      CONTAINER_ROLE: scheduler
 
 
