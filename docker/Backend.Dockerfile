@@ -9,3 +9,6 @@ COPY ./backend/composer.lock ./
 RUN composer install --ignore-platform-reqs
 
 COPY ./backend .
+
+RUN chown application:application -R ./storage
+RUN chown application:application -R ./bootstrap
