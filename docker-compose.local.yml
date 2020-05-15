@@ -14,14 +14,14 @@ services:
     working_dir: /var/www
     networks:
       - app-network
-#  admin:
-#    container_name: ${APP_NAME}-admin
-#    restart: always
-#    build:
-#      context: .
-#      dockerfile: docker/admin/Dockerfile
-#    networks:
-#      - app-network
+  admin:
+    container_name: ${APP_NAME}-admin
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/admin/Dockerfile
+    networks:
+      - app-network
   api:
     container_name: ${APP_NAME}-api
     restart: always
