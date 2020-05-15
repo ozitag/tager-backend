@@ -1,11 +1,9 @@
-**/storage/app
-**/vendor
 **/node_modules
-**/public/assets
 
-frontend/node_modules
-frontend/dist
-frontend/Dockerfile
-frontend/.git
+api/storage/app
+api/vendor
+api/public/assets
+api/vendor
 
-backend/vendor
+admin/dist
+

@@ -1,3 +1,5 @@
+`docker-compose --project-name backend-boilerplate up --build --force-recreate -d`
+
 For local development:
 
 1. Configure .env files (./env ./srv/.env)
@@ -6,6 +8,7 @@ For local development:
 
 3. run `docker exec -it UID /bin/bash`, where UID is a docker container id of php-fpm
 inside container run `php artisan db:seed && php artisan storage:link`
+
 
 
 * два env: ./ & ./src
