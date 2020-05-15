@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Api\Core;
+namespace App\Http\Requests\Core;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class AuthRequest
- * @package App\Http\Requests\Api\Core
+ * @package App\Http\Requests\Api\Guest\auth
  *
  * @var string login
  * @var string $password
