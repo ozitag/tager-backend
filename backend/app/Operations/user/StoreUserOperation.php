@@ -1,7 +1,7 @@
 <?php
 namespace App\Operations\user;
 
-use App\Enums\UserRoles;
+use App\Enums\AdministratorRoles;
 use App\Http\Requests\Api\Admin\users\CreateUserRequest;
 use App\Jobs\Synch\user\StoreUserJob;
 use App\Jobs\Synch\user\UpdateUserJob;
@@ -24,7 +24,7 @@ class StoreUserOperation extends Operation
         $this->run(UpdateUserJob::class, [
             'attributes' => [
                 'password' => Hash::make($this->request->password),
-                'role' => UserRoles::ADMIN
+                'role' => AdministratorRoles::ADMIN
             ],
             'user' => $user
         ]);

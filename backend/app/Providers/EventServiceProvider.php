@@ -28,9 +28,6 @@ class EventServiceProvider extends ServiceProvider
         MessageSent::class => [
             LogSentMessage::class
         ],
-        'App\Events\OrderCreated' => [
-            'App\Listeners\SendEmailAfterOrder',
-        ],
     ];
 
     /**

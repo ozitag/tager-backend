@@ -3,7 +3,7 @@
 
 namespace App\Jobs\Synch\user;
 
-use App\Repositories\Eloquent\UserRepository;
+use App\Repositories\Eloquent\AdministratorRepository;
 
 class UpdateUserJob
 {
@@ -16,7 +16,7 @@ class UpdateUserJob
         $this->attributes = $attributes;
     }
 
-    public function handle(UserRepository $repository){
+    public function handle(AdministratorRepository $repository){
         $repository->set($this->user);
         $repository->update($this->attributes);
     }

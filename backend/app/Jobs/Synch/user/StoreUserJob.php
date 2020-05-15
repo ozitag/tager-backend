@@ -4,7 +4,7 @@
 namespace App\Jobs\Synch\user;
 
 
-use App\Repositories\Eloquent\UserRepository;
+use App\Repositories\Eloquent\AdministratorRepository;
 
 class StoreUserJob
 {
@@ -15,7 +15,7 @@ class StoreUserJob
         $this->request = $request;
     }
 
-    public function handle(UserRepository $repository){
+    public function handle(AdministratorRepository $repository){
         return $repository->fillAndSave($this->request->getData());
     }
 }
