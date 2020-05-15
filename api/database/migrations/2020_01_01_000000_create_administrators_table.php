@@ -19,10 +19,15 @@ class CreateAdministratorsTable extends Migration
             $table->string('email')->unique();
             $table->string('password')->nullable();
             $table->string('auth_token')->nullable();
-            $table->integer('role')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });
+
+        \Illuminate\Support\Facades\DB::table('administrators')->insert([
+            'name' => 'Vital Ozierski',
+            'email' => 'admin@ozitag.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('hello'),
+        ]);
     }
 
     /**

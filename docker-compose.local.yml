@@ -46,6 +46,8 @@ services:
   db:
     container_name: ${APP_NAME}-db
     image: mysql:5.7
+    ports:
+      - ${MYSQL_EXTERNAL_PORT}:3306
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
