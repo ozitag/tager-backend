@@ -8,7 +8,7 @@ COPY ./api/composer.lock ./
 
 RUN composer install --ignore-platform-reqs
 
-COPY ./backend .
+COPY ./api .
 COPY ./docker/api/bootstrap.sh /opt/docker/bin
 
 RUN chown application:application -R ./storage
