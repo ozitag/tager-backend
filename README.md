@@ -1,4 +1,4 @@
-`docker-compose --project-name backend-boilerplate up --build --force-recreate -d`
+`docker-compose -f docker-compose.local.yml --project-name backend-boilerplate up --build --force-recreate -d`
 
 For local development:
 
