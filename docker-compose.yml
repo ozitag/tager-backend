@@ -22,6 +22,12 @@ services:
       dockerfile: docker/admin/Dockerfile
     networks:
       - app-network
+  admin-auth:
+    container_name: ${APP_NAME}-admin-auth
+    restart: always
+    image: ozitag/tvixer-admin-auth
+    networks:
+      - app-network
   api:
     container_name: ${APP_NAME}-api
     restart: always
