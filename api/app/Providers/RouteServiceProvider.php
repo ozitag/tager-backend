@@ -42,16 +42,15 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+        $this->mapAdminRoutes();
+
         $this->mapApiRoutes();
 
         $this->mapPublicApiRoutes();
 
         $this->mapWebRoutes();
 
-        $this->mapGuestRoutes();
-
         $this->mapWebApiRoutes();
-
     }
 
     /**
@@ -64,15 +63,15 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware(['web', 'auth'])
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
 
-    protected function mapGuestRoutes()
+    protected function mapAdminRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/guest.php'));
+            ->namespace($this->namespace)
+            ->group(base_path('routes/admin.php'));
     }
 
     protected function mapWebApiRoutes()
@@ -80,7 +79,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware(['api.auth.jwt', 'ajax', 'role:isAdmin'])
             ->namespace($this->namespace)
             ->prefix('api/admin')
-             ->group(base_path('routes/web.api.php'));
+            ->group(base_path('routes/web.api.php'));
     }
 
     protected function mapPublicApiRoutes()
@@ -100,8 +99,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api.auth.jwt')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api/api.php'));
+            ->middleware('api.auth.jwt')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api/api.php'));
     }
 }

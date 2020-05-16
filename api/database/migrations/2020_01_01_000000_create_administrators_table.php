@@ -26,7 +26,7 @@ class CreateAdministratorsTable extends Migration
         \Illuminate\Support\Facades\DB::table('administrators')->insert([
             'name' => 'Vital Ozierski',
             'email' => 'admin@ozitag.com',
-            'password' => \Illuminate\Support\Facades\Hash::make('hello'),
+            'password' => \Illuminate\Support\Facades\Hash::make('admin'),
         ]);
     }
 

@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Features\auth\LoginFeature;
+use App\Features\Admin\LoginFeature;
 
 class AuthController extends Controller
 {
-    public function login(){
+    public function login()
+    {
         return $this->serve(LoginFeature::class);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware\Api;
 
-use App\Models\User;
+use App\Models\Administrator;
 use Closure;
 use App\Models\AuthClient;
 use Firebase\JWT\JWT;
@@ -27,7 +27,7 @@ class JwtAuth
             } catch (\Exception $e) {
                 return response(['message' => 'Invallid authorization token'], 401);
             }
-            $user = User::find($token->id);
+            $user = Administrator::find($token->id);
             if(!$user) {
                 return response(['message' => 'User has been deleted'], 401);
             }

@@ -13,7 +13,7 @@ return [
     |
     */
     'jwt' => [
-        'secret_key' => env('APP_KEY'), // TODO?
+        'secret_key' => env('APP_JWT_KEY'), // TODO?
         'algorithm' => 'HS256'
     ],
     'defaults' => [
@@ -70,7 +70,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Administrator::class,
         ],
 
         // 'users' => [
