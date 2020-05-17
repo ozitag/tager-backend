@@ -10,4 +10,4 @@ RUN composer install --ignore-platform-reqs
 RUN chown application:application -R ./storage
 RUN chown application:application -R ./bootstrap
 
-COPY ./docker/backend/bootstrap.sh /opt/docker/bin
+COPY ./docker/bootstrap.sh /opt/docker/bin
