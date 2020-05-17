@@ -3,7 +3,7 @@ FROM webdevops/php-nginx:7.4-alpine
 
 WORKDIR /var/www/app
 
-COPY ./backend .
+COPY ./src .
 RUN composer global require hirak/prestissimo
 RUN composer install --ignore-platform-reqs
 
