@@ -4,11 +4,13 @@ services:
   backend:
     container_name: ${APP_NAME}-backend
     restart: always
-    working_dir: /var/www
+    working_dir: /var/www/app
     tty: true
     build:
       context: .
       dockerfile: docker/Dockerfile
+    ports:
+      - ${APP_PORT}:80
     depends_on:
       - db
     volumes:
@@ -26,7 +28,7 @@ services:
     image: composer:1.9
     command: ["composer", "install", "--ignore-platform-reqs"]
     volumes:
-      - $PWD/src:/app
+      - ./src:/app
   db:
     container_name: ${APP_NAME}-db
     image: mysql:5.7

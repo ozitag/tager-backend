@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd /var/www/app
+#chown application:application -R ./storage
+#chown application:application -R ./bootstrap
 php artisan key:generate
-php artisan passport:install
-php artisan migrate --force
+php artisan migrate
