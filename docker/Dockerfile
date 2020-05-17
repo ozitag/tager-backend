@@ -3,11 +3,11 @@ FROM webdevops/php-nginx:7.4-alpine
 
 WORKDIR /var/www/app
 
-COPY ./api .
+COPY ./backend .
 RUN composer global require hirak/prestissimo
 RUN composer install --ignore-platform-reqs
 
 RUN chown application:application -R ./storage
 RUN chown application:application -R ./bootstrap
 
-COPY ./docker/api/bootstrap.sh /opt/docker/bin
+COPY ./docker/backend/bootstrap.sh /opt/docker/bin
