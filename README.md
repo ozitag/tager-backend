@@ -1,28 +1,9 @@
-`docker-compose -f docker-compose.local.yml --project-name backend-boilerplate up --build --force-recreate -d`
-
 For local development:
 
 1. Configure .env files (./env ./srv/.env)
 
-2. run `docker-compose --project-name PROJECT_NAME up --build --force-recreate -d`
+2. run `docker-compose -f docker-compose.local.yml --project-name tager-backend up --build --force-recreate -d`
 
-3. run `docker exec -it UID /bin/bash`, where UID is a docker container id of php-fpm
-inside container run `php artisan db:seed && php artisan storage:link`
+3. after first run you have to wait 3-5 mins while composer installing dependencies
 
-
-
-* два env: ./ & ./src
-* Может понадобится два запуска start.sh, после успешного запуска: 
-   * docker-compose exec -it UID bash
-   * php artisan db:seed
-   * php artisan storage:link
-   
-   * для разработки VueJs - npm i из ./src
-   
-_Локальная разработка | http:_
-   * **src/.env** APP_ENV=local
-   
-_Бд вне контейнера:_
-   * **.env** LOCAL_IP=локальный ip
-   * в качестве хоста дб: **dockerhost**
-  
+4. Open browser http://localhost:8005/test, check if you see `{"success":true}` on browser's output
