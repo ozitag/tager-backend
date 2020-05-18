@@ -53,10 +53,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'ajax' => \App\Http\Middleware\RequestIsAjax::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'api.auth.jwt' => \App\Http\Middleware\Api\JwtAuth::class,
-        'api.auth.basic' => \App\Http\Middleware\Api\BasicAuth::class,
-        'api.auth.basic.user' => \App\Http\Middleware\Api\BasicAuthUser::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'auth.jwt' => \App\Http\Middleware\Api\JwtAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,

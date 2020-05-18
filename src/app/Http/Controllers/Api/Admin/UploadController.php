@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Controllers\Admin\Api;
+namespace App\Http\Controllers\Api\Admin;
 
 
 use App\Features\files\StoreFileFeature;
