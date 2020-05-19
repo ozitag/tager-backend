@@ -17,7 +17,6 @@ class AddDefaultOauthClient extends Migration
     {
         DB::table('oauth_clients')->insert([
             'name' => 'Default',
-            'secret' => Str::random(36),
             'redirect' => '/',
             'password_client' => 1,
             'personal_access_client' => 0,
