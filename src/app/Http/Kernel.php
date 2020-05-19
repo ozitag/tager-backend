@@ -52,6 +52,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'ajax' => \App\Http\Middleware\RequestIsAjax::class,
+        'passport' => \App\Http\Middleware\Api\Passport::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.jwt' => \App\Http\Middleware\Api\JwtAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

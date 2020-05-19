@@ -55,7 +55,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::namespace($this->namespace)
             ->prefix('admin')
-            ->middleware('auth:api')
+            ->middleware(['passport:administrators', 'auth:api'])
             ->group(base_path('routes/admin.php'));
     }
 
@@ -63,7 +63,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::namespace($this->namespace)
             ->prefix('api/admin')
-            ->middleware(['auth:api'])
+            ->middleware(['passport:administrators', 'auth:api'])
             ->group(base_path('routes/api/api.admin.php'));
     }
 
@@ -78,7 +78,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::namespace($this->namespace)
             ->prefix('api')
-            ->middleware(['auth:api'])
+            ->middleware(['passport:users', 'auth:api'])
             ->group(base_path('routes/api/api.php'));
     }
 }
