@@ -21,13 +21,6 @@ class CreateUsers extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
-        \Illuminate\Support\Facades\DB::table('users')->insert([
-            'name' => 'Vital Ozierski',
-            'email' => 'user@ozitag.com',
-            'password' => \Illuminate\Support\Facades\Hash::make('user'),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
-        ]);
     }
 
     /**
