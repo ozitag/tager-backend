@@ -4,7 +4,7 @@
 namespace App\Listeners;
 
 
-use App\Repositories\Eloquent\AdminAuthLogRepository;
+use App\Repositories\Eloquent\Core\AdminAuthLogRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Request;
 use Laravel\Passport\Events\AccessTokenCreated;

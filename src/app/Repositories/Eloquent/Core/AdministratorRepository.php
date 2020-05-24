@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquent\Core;
 
-use App\Models\Administrator;
+use App\Models\Core\Administrator;
 
 class AdministratorRepository extends BaseRepository
 {

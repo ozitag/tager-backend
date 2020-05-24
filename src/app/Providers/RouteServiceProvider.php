@@ -43,31 +43,30 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
 
-        $this->mapAdminApiRoutes();
+        $this->mapAdminRoutes();
 
-        $this->mapApiRoutes();
+        $this->mapCoreRoutes();
 
-        $this->mapPublicApiRoutes();
+        $this->mapPublicRoutes();
     }
 
-    protected function mapAdminApiRoutes()
+    protected function mapAdminRoutes()
     {
         Route::namespace($this->namespace)
             ->prefix('admin')
             ->middleware(['passport:administrators', 'auth:api'])
-            ->group(base_path('routes/api/api.admin.php'));
+            ->group(base_path('routes/admin.php'));
     }
 
-    protected function mapPublicApiRoutes()
+    protected function mapPublicRoutes()
     {
         Route::namespace($this->namespace)
-            ->group(base_path('routes/api/api.guest.php'));
+            ->group(base_path('routes/public.php'));
     }
 
-    protected function mapApiRoutes()
+    protected function mapCoreRoutes()
     {
         Route::namespace($this->namespace)
-            ->middleware(['passport:users', 'auth:api'])
-            ->group(base_path('routes/api/api.php'));
+            ->group(base_path('routes/core.php'));
     }
 }
