@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Guest;
+namespace App\Http\Controllers\Guest;
 
 
 use App\Http\Controllers\Controller;
