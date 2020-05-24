@@ -18,7 +18,6 @@ class Kernel extends HttpKernel
         \Fruitcake\Cors\HandleCors::class,
         \App\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
@@ -52,13 +51,11 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'ajax' => \App\Http\Middleware\RequestIsAjax::class,
-        'passport' => \App\Http\Middleware\Api\Passport::class,
+        'passport' => \App\Http\Middleware\Passport::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.jwt' => \App\Http\Middleware\Api\JwtAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'role' => \App\Http\Middleware\Role::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,

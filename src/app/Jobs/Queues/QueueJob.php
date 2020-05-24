@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Jobs\Queues;
-
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -13,5 +11,4 @@ use Illuminate\Queue\SerializesModels;
 class QueueJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
 }

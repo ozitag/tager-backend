@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-
 use Illuminate\Http\Request;
 
 class RequestIsAjax
@@ -17,7 +16,7 @@ class RequestIsAjax
     public function handle($request, \Closure $next)
     {
         if (!$request->ajax()) {
-            return response(['Ajax pls'], 400);
+            return response(['Method is enabled only for AJAX requests'], 400);
         }
 
         return $next($request);

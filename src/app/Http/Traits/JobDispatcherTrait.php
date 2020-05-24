@@ -20,9 +20,9 @@ trait JobDispatcherTrait
      * When the $arguments is an instance of Request
      * it will call dispatchFrom instead.
      *
-     * @param string                         $job
+     * @param string $job
      * @param array|Request $arguments
-     * @param array                          $extra
+     * @param array $extra
      *
      * @return mixed
      */

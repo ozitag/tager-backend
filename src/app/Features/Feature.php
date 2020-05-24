@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Features;
 
 use App\Http\Traits\MarshalTrait;

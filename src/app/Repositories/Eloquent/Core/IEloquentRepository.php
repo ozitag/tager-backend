@@ -1,8 +1,6 @@
 <?php
 
-
-namespace App\Repositories;
-
+namespace App\Repositories\Eloquent\Core;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,6 +22,7 @@ interface IEloquentRepository
      * @return Model|null
      */
     public function first(): ?Model;
+
     /**
      * Returns all the records.
      *

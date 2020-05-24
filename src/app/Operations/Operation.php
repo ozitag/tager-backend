@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Operations;
-
 
 use App\Http\Traits\JobDispatcherTrait;
 use App\Http\Traits\MarshalTrait;

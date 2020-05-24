@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Middleware\Api;
+namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Validator;
 use Laminas\Diactoros\ResponseFactory;
@@ -23,6 +22,7 @@ class Passport
     {
         $this->server = $server;
     }
+
     /**
      * Handle an incoming request.
      *
@@ -33,7 +33,7 @@ class Passport
      */
     public function handle($request, Closure $next, ...$providers)
     {
-        if($providers) {
+        if ($providers) {
             Config::set('auth.guards.api.provider', array_shift($providers));
             return $this->validateAccessToken($request) ?
                 $next($request) : response(['message' => Response::$statusTexts[401]], 401);
@@ -50,7 +50,8 @@ class Passport
     }
 
 
-    private function validateAccessToken($request){
+    private function validateAccessToken($request)
+    {
         $psr = (new PsrHttpFactory(
             new ServerRequestFactory,
             new StreamFactory,

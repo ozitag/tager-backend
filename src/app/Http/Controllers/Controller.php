@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\FeatureStarted;
 use App\Http\Traits\MarshalTrait;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;

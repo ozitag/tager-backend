@@ -1,13 +1,12 @@
 <?php
 
-
 namespace App\Operations;
-
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Bus\Queueable;
+
 /**
  * An abstract Operation that can be managed with a queue
  * when extended the operation will be queued by default.

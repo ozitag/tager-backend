@@ -2,12 +2,12 @@
 
 namespace App\Models\Core;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class AdminAuthLog extends Model
 {
     const UPDATED_AT = null;
+
     protected $table = 'administrator_auth_logs';
 
     /**
@@ -16,6 +16,7 @@ class AdminAuthLog extends Model
      * @var array
      */
     protected $fillable = [
-        'ip', 'administrator_id'
+        'ip',
+        'administrator_id'
     ];
 }

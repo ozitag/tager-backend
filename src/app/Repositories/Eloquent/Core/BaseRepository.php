@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Repositories\Eloquent\Core;
 
-use App\Repositories\IEloquentRepository;
 use Illuminate\Database\Eloquent\Model;
 
 class BaseRepository implements IEloquentRepository
@@ -32,6 +32,7 @@ class BaseRepository implements IEloquentRepository
         $this->model = $this->findBy($this->model->getKeyName(), $id);
         return $this->model;
     }
+
     /**
      * @param array $attributes
      *
@@ -85,7 +86,8 @@ class BaseRepository implements IEloquentRepository
      * @param $attributes
      * @return Model
      */
-    public function fillAndSave($attributes) {
+    public function fillAndSave($attributes)
+    {
         $this->model->fill($attributes);
         $this->model->save();
 

@@ -2,7 +2,6 @@
 
 namespace App\Observers;
 
-
 use Illuminate\Support\Facades\Config;
 use Laravel\Passport\Token;
 
@@ -16,7 +15,7 @@ class TokenObserver
      */
     public function creating(Token $token)
     {
-        if(!$token->provider) {
+        if (!$token->provider) {
             $token->provider = Config::get('auth.guards.api.provider');
         }
     }
@@ -24,7 +23,7 @@ class TokenObserver
     /**
      * Handle the token "updated" event.
      *
-     * @param  \App\Token  $token
+     * @param \App\Token $token
      * @return void
      */
     public function updated(Token $token)
@@ -35,7 +34,7 @@ class TokenObserver
     /**
      * Handle the token "deleted" event.
      *
-     * @param  \App\Token  $token
+     * @param \App\Token $token
      * @return void
      */
     public function deleted(Token $token)
@@ -46,7 +45,7 @@ class TokenObserver
     /**
      * Handle the token "restored" event.
      *
-     * @param  \App\Token  $token
+     * @param \App\Token $token
      * @return void
      */
     public function restored(Token $token)
@@ -57,7 +56,7 @@ class TokenObserver
     /**
      * Handle the token "force deleted" event.
      *
-     * @param  \App\Token  $token
+     * @param \App\Token $token
      * @return void
      */
     public function forceDeleted(Token $token)

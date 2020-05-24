@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Listeners;
-
 
 use App\Repositories\Eloquent\Core\AdminAuthLogRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -12,7 +10,7 @@ use Laravel\Passport\Events\AccessTokenCreated;
 class AdminAuthListener implements ShouldQueue
 {
     /**
-     * @var ITaskRepository
+     * @var AdminAuthLogRepository
      */
     private $repository;
 
@@ -32,7 +30,7 @@ class AdminAuthListener implements ShouldQueue
      * @param AccessTokenCreated $event
      * @return void
      */
-    public function handle( AccessTokenCreated $event )
+    public function handle(AccessTokenCreated $event)
     {
         $this->repository->fillAndSave([
             'administrator_id' => $event->userId,
