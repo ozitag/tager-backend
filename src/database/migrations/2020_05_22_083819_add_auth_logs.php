@@ -13,12 +13,13 @@ class AddAuthLogs extends Migration
      */
     public function up()
     {
-        Schema::create('auth_logs', function (Blueprint $table) {
+        Schema::create('administrator_auth_logs', function (Blueprint $table) {
             $table->id();
             $table->string('ip');
-            $table->integer('user_id')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
+            $table->bigInteger('administrator_id')->unsigned()->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->foreign('administrator_id')
+                ->references('id')->on('administrators');
         });
     }
 
@@ -29,6 +30,6 @@ class AddAuthLogs extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auth_logs');
+        Schema::dropIfExists('administrator_auth_logs');
     }
 }

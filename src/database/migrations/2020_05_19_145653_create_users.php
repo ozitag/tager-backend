@@ -18,7 +18,6 @@ class CreateUsers extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password')->nullable();
-            $table->string('auth_token')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -26,6 +25,8 @@ class CreateUsers extends Migration
             'name' => 'Vital Ozierski',
             'email' => 'user@ozitag.com',
             'password' => \Illuminate\Support\Facades\Hash::make('user'),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
         ]);
     }
 

@@ -18,7 +18,6 @@ class CreateAdministratorsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password')->nullable();
-            $table->string('auth_token')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -27,6 +26,8 @@ class CreateAdministratorsTable extends Migration
             'name' => 'Vital Ozierski',
             'email' => 'admin@ozitag.com',
             'password' => \Illuminate\Support\Facades\Hash::make('admin'),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
         ]);
     }
 

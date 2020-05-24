@@ -4,12 +4,12 @@
 namespace App\Listeners;
 
 
-use App\Repositories\Eloquent\AuthLogRepository;
+use App\Repositories\Eloquent\AdminAuthLogRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Request;
 use Laravel\Passport\Events\AccessTokenCreated;
 
-class AuthLogs implements ShouldQueue
+class AdminAuthListener implements ShouldQueue
 {
     /**
      * @var ITaskRepository
@@ -19,9 +19,9 @@ class AuthLogs implements ShouldQueue
     /**
      * Create the event listener.
      *
-     * @param AuthLogRepository $repository
+     * @param AdminAuthLogRepository $repository
      */
-    public function __construct(AuthLogRepository $repository)
+    public function __construct(AdminAuthLogRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -35,7 +35,7 @@ class AuthLogs implements ShouldQueue
     public function handle( AccessTokenCreated $event )
     {
         $this->repository->fillAndSave([
-            'user_id' => $event->userId,
+            'administrator_id' => $event->userId,
             'ip' => Request::ip() ?? '-'
         ]);
     }

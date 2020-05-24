@@ -2,15 +2,12 @@
 
 namespace App\Providers;
 
-use App\Listeners\AuthLogs;
+use App\Listeners\AdminAuthListener;
 use App\Listeners\LogSendingMessage;
 use App\Listeners\LogSentMessage;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Mail\Events\MessageSending;
-use Illuminate\Mail\Events\MessageSent;
-use Illuminate\Support\Facades\Event;
 use Laravel\Passport\Events\AccessTokenCreated;
 
 class EventServiceProvider extends ServiceProvider
@@ -25,7 +22,7 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         AccessTokenCreated::class => [
-            AuthLogs::class
+            AdminAuthListener::class
         ],
     ];
 
