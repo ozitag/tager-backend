@@ -36,7 +36,7 @@ class Passport
         if($providers) {
             Config::set('auth.guards.api.provider', array_shift($providers));
             return $this->validateAccessToken($request) ?
-                $next($request) : response(['message' => Response::$statusTexts[401]], 400);
+                $next($request) : response(['message' => Response::$statusTexts[401]], 401);
         }
         $validator = Validator::make($request->all(), [
             'provider' => 'nullable|in:users,administrators',
@@ -65,14 +65,10 @@ class Passport
                 $access_token = Token::whereId($token_id)
                     ->whereProvider(Config::get('auth.guards.api.provider'))
                     ->first();
-
-                if ($access_token) {
-                    return true;
-                }
             }
         } catch (\Exception $e) {
-            return false;
+
         }
-        return false;
+        return isset($access_token) && $access_token ? true : false;
     }
 }
