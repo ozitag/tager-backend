@@ -13,6 +13,7 @@ use Laminas\Diactoros\UploadedFileFactory;
 use League\OAuth2\Server\ResourceServer;
 use Laravel\Passport\Token;
 use Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory;
+use Symfony\Component\HttpFoundation\Response;
 
 class Passport
 {
@@ -29,14 +30,13 @@ class Passport
      * @param \Closure $next
      * @param array $providers
      * @return mixed
-     * @throws AuthenticationException
      */
     public function handle($request, Closure $next, ...$providers)
     {
         if($providers) {
             Config::set('auth.guards.api.provider', array_shift($providers));
-            $this->validateAccessToken($request);
-            return $next($request);
+            return $this->validateAccessToken($request) ?
+                $next($request) : response(['message' => Response::$statusTexts[401]], 400);
         }
         $validator = Validator::make($request->all(), [
             'provider' => 'nullable|in:users,administrators',
@@ -45,7 +45,6 @@ class Passport
             return response(['error' => 'Bad request'], 400);
         }
         Config::set('auth.guards.api.provider', $request->get('provider') ?? 'users');
-        $this->validateAccessToken($request);
 
         return $next($request);
     }
@@ -67,12 +66,13 @@ class Passport
                     ->whereProvider(Config::get('auth.guards.api.provider'))
                     ->first();
 
-                if (!$access_token) {
-                    throw new AuthenticationException;
+                if ($access_token) {
+                    return true;
                 }
             }
         } catch (\Exception $e) {
-            throw new AuthenticationException;
+            return false;
         }
+        return false;
     }
 }
