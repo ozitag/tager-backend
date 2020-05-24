@@ -7,3 +7,4 @@ chown application:application -R bootstrap
 
 composer i --ignore-platform-reqs
 php artisan migrate
+php artisan migrate --path=database/migrations/post/

@@ -2,4 +2,4 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/users', 'Api\Guest\UsersController@index');
+Route::get('/guest/users', 'Api\Guest\UsersController@index');
