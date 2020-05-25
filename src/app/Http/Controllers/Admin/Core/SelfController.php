@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Core;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\administrator\AdministratorResource;
+use App\Http\Resources\Administrator\AdministratorResource;
 use App\Http\Resources\SuccessResource;
 use Illuminate\Support\Facades\Auth;
 
