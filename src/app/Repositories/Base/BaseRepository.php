@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories\Eloquent\Core;
+namespace App\Repositories\Base;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BaseRepository implements IEloquentRepository
+class BaseRepository implements IBaseRepository
 {
     /**
      * @var Model

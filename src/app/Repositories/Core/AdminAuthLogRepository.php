@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Repositories\Eloquent\Core;
+namespace App\Repositories\Core;
 
 use App\Models\Core\AdminAuthLog;
+use App\Repositories\Base\BaseRepository;
 
 class AdminAuthLogRepository extends BaseRepository
 {

@@ -26,7 +26,40 @@ class FormRequest extends \Illuminate\Foundation\Http\FormRequest
 
         $errors = [];
         foreach ($errorMessages as $errorField => $errorFieldData) {
-            $errors[$errorField] = $errorFieldData[1];
+            foreach ($errorFieldData as $errorFieldDatum) {
+
+                if (mb_substr($errorFieldDatum, 0, mb_strlen('validation.')) == 'validation.') {
+                    $data = explode('.', $errorFieldDatum);
+                    if ($data[1] == 'required') {
+                        $errors[$errorField] = [
+                            'code' => 'VALIDATION_REQUIRED',
+                            'message' => 'Field required'
+                        ];
+                    } else if ($data[1] == 'numeric') {
+                        $errors[$errorField] = [
+                            'code' => 'VALIDATION_NUMERIC',
+                            'message' => 'Should be a number'
+                        ];
+                    } else if ($data[1] == 'date') {
+                        $errors[$errorField] = [
+                            'code' => 'VALIDATION_DATE',
+                            'message' => 'Invalid date'
+                        ];
+                    } else {
+                        $errors[$errorField] = [
+                            'code' => $data[1],
+                            'message' => $data[1]
+                        ];
+                    }
+                } else{
+                    $errors[$errorField] = [
+                        'code' => 'UNKNOWN_ERROR',
+                        'message' => $errorFieldDatum
+                    ];
+                }
+
+                break;
+            }
         }
 
         throw new HttpResponseException(response()->json([

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories\Eloquent\Core;
+namespace App\Repositories\Base;
 
 use Illuminate\Database\Eloquent\Model;
 
-interface IEloquentRepository
+interface IBaseRepository
 {
     /**
      * @param array $attributes
