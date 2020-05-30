@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Core;
 
+use OZiTAG\Tager\Backend\Core\Repositories\EloquentRepository;
 use App\Models\Core\Administrator;
-use App\Repositories\Base\BaseRepository;
 
-class AdministratorRepository extends BaseRepository
+class AdministratorRepository extends EloquentRepository
 {
     public function __construct(Administrator $model)
     {

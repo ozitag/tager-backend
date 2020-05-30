@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Core;
 
+use OZiTAG\Tager\Backend\Core\Repositories\EloquentRepository;
 use App\Models\Core\AdminAuthLog;
-use App\Repositories\Base\BaseRepository;
 
-class AdminAuthLogRepository extends BaseRepository
+class AdminAuthLogRepository extends EloquentRepository
 {
     public function __construct(AdminAuthLog $model)
     {

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Core;
 
-use App\Http\Controllers\Controller;
+use OZiTAG\Tager\Backend\Core\Controller;
+use OZiTAG\Tager\Backend\Core\SuccessResource;
 use App\Http\Resources\Administrator\AdministratorResource;
-use App\Http\Resources\SuccessResource;
 use Illuminate\Support\Facades\Auth;
 
 class SelfController extends Controller

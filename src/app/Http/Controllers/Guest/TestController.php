@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Guest;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\SuccessResource;
+use OZiTAG\Tager\Backend\Core\Controller;
+use OZiTAG\Tager\Backend\Core\SuccessResource;
 
 class TestController extends Controller
 {
