@@ -47,12 +47,6 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapAdminRoutes();
     }
 
-    protected function mapCoreRoutes()
-    {
-        Route::namespace($this->namespace)
-            ->group(base_path('routes/core.php'));
-    }
-
     protected function mapPublicRoutes()
     {
         Route::namespace($this->namespace)

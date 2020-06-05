@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Core;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Ozerich\FileStorage\Storage;
