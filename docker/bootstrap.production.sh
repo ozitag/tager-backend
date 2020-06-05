@@ -5,5 +5,4 @@ cd /var/www/app/
 chown application:application -R storage
 chown application:application -R bootstrap
 
-php artisan migrate
-php artisan migrate --path=database/migrations/post/
+php artisan migrate --force

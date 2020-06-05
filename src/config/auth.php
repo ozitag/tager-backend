@@ -12,14 +12,13 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
-
     'jwt' => [
         'secret_key' => env('APP_JWT_KEY'), // TODO?
         'algorithm' => 'HS256'
     ],
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'api',
         'passwords' => 'users',
     ],
 

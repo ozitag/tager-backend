@@ -11,7 +11,7 @@ function fileStorage($folder)
     return [
         'type' => 'file',
         'saveOriginalFilename' => false,
-        'uploadDirPath' => __DIR__ . '/../storage/app/public/uploads/' . $folder,
+        'uploadDirPath' => __DIR__ . '/../storage/app/public/default/' . $folder,
         'uploadDirUrl' => '/uploads/' . $folder,
     ];
 }
@@ -36,6 +36,6 @@ return [
                     'exact' => true
                 ],
             ]
-        ]
+        ],
     ]
 ];

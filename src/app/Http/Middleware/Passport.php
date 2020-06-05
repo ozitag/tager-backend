@@ -38,13 +38,16 @@ class Passport
             return $this->validateAccessToken($request) ?
                 $next($request) : response(['message' => Response::$statusTexts[401]], 401);
         }
+
         $validator = Validator::make($request->all(), [
             'provider' => 'nullable|in:users,administrators',
         ]);
+
         if ($validator->fails()) {
             return response(['error' => 'Bad request'], 400);
         }
-        Config::set('auth.guards.api.provider', $request->get('provider') ?? 'users');
+
+        Config::set('auth.guards.api.provider', 'administrators');
 
         return $next($request);
     }
