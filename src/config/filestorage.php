@@ -1,6 +1,6 @@
 <?php
 
-$validator = [
+$imageValidator = [
     'maxSize' => 20 * 1024 * 1024,
     'checkExtensionByMimeType' => true,
     'extensions' => ['jpg', 'jpeg', 'png']
@@ -17,10 +17,18 @@ function fileStorage($folder)
 }
 
 return [
+    'defaultStorage' => fileStorage('tmp'),
+
+    'defaultValidator' => [
+        'maxSize' => 50 * 1024 * 1024,
+        'checkExtensionByMimeType' => true,
+        'extensions' => ['jpg', 'jpeg', 'png', 'zip', 'docx', 'pdf', 'doc', 'rar', 'xls', 'xlsx', 'pptx', 'ppt', 'gif', 'mp4']
+    ],
+
     'scenarios' => [
         'default' => [
             'storage' => fileStorage('default'),
-            'validator' => $validator,
+            'validator' => $imageValidator,
             'thumbnails' => [
                 'preview' => [
                     'width' => 380,
