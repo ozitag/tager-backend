@@ -177,6 +177,7 @@ return [
         App\Providers\RepositoryServiceProvider::class,
 
         Ozerich\FileStorage\StorageServiceProvider::class,
+        OZiTAG\Tager\Backend\Core\TagerBackendCoreServiceProvider::class,
         OZiTAG\Tager\Backend\Admin\TagerBackendAdminServiceProvider::class
     ],
 
