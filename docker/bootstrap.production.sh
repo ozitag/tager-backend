@@ -2,7 +2,7 @@
 
 cd /var/www/app/
 
-chown application:application -R storage
-chown application:application -R bootstrap
+chmod 777 -R storage/logs
+chmod 777 -R storage/app/public/uploads
 
 php artisan migrate --force
