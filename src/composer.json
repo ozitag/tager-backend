@@ -16,6 +16,7 @@
         "ozerich/laravel-filestorage-db": "^0.2",
         "ozitag/tager-backend-admin": "^0.1",
         "ozitag/tager-backend-core": "^0.1",
+        "ozitag/tager-backend-sentry": "^1.0",
         "sentry/sentry-laravel": "^1.7",
         "symfony/psr-http-message-bridge": "^2.0",
         "zendframework/zend-diactoros": "^2.2"
