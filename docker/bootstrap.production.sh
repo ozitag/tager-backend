@@ -2,7 +2,6 @@
 
 cd /var/www/app/
 
-chmod 777 -R storage/logs
-chmod 777 -R storage/app/public/uploads
+chmod 777 -R storage
 
 php artisan migrate --force
