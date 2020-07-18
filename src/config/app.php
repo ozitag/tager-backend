@@ -177,7 +177,14 @@ return [
 
         Ozerich\FileStorage\StorageServiceProvider::class,
         OZiTAG\Tager\Backend\Core\TagerBackendCoreServiceProvider::class,
-        OZiTAG\Tager\Backend\Admin\TagerBackendAdminServiceProvider::class
+        OZiTAG\Tager\Backend\Admin\TagerBackendAdminServiceProvider::class,
+        OZiTAG\Tager\Backend\Seo\TagerBackendSeoServiceProvider::class,
+        OZiTAG\Tager\Backend\Mail\TagerBackendMailServiceProvider::class,
+        OZiTAG\Tager\Backend\Sentry\TagerBackendSentryServiceProvider::class,
+        OZiTAG\Tager\Backend\Settings\TagerBackendSettingsServiceProvider::class,
+        OZiTAG\Tager\Backend\Menus\TagerBackendMenusServiceProvider::class,
+        OZiTAG\Tager\Backend\Banners\TagerBackendBannersServiceProvider::class,
+        OZiTAG\Tager\Backend\Pages\TagerBackendPagesServiceProvider::class,
     ],
 
     /*
