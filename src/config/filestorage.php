@@ -1,48 +1,22 @@
 <?php
 
-$imageValidator = [
-    'maxSize' => 20 * 1024 * 1024,
-    'checkExtensionByMimeType' => true,
-    'extensions' => ['jpg', 'jpeg', 'png']
-];
-
-function fileStorage($folder)
-{
-    return [
-        'type' => 'file',
-        'saveOriginalFilename' => false,
-        'uploadDirPath' => __DIR__ . '/../storage/app/public/default/' . $folder,
-        'uploadDirUrl' => '/uploads/' . $folder,
-    ];
-}
+use Ozerich\FileStorage\Utils\ConfigHelper;
+use App\Enums\FileScenario;
+use App\Enums\Thumbnail;
 
 return [
-    'defaultStorage' => fileStorage('tmp'),
-
-    'defaultValidator' => [
-        'maxSize' => 50 * 1024 * 1024,
-        'checkExtensionByMimeType' => true,
-        'extensions' => ['jpg', 'jpeg', 'png', 'zip', 'docx', 'pdf', 'doc', 'rar', 'xls', 'xlsx', 'pptx', 'ppt', 'gif', 'mp4']
-    ],
+    'defaultStorage' => ConfigHelper::temporaryStorage(),
+    'defaultValidator' => ConfigHelper::defaultValidator(),
 
     'scenarios' => [
-        'default' => [
-            'storage' => fileStorage('default'),
-            'validator' => $imageValidator,
+        FileScenario::File => [
+            'storage' => ConfigHelper::fileStorage('zip')
+        ],
+        FileScenario::Product => [
+            'storage' => ConfigHelper::fileStorage('products'),
             'thumbnails' => [
-                'preview' => [
-                    'width' => 380,
-                    'height' => 250,
-                    'crop' => true,
-                    '2x' => true,
-                    'webp' => true,
-                    'quality' => 100
-                ],
-                'og' => [
-                    'width' => 1200,
-                    'height' => 630,
-                    'exact' => true
-                ],
+                Thumbnail::Preview => ConfigHelper::thumbWithWebpAnd2x(380, 250),
+                Thumbnail::OpenGraph => ConfigHelper::thumbOpenGraph(),
             ]
         ],
     ]
