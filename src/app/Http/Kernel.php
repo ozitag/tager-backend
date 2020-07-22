@@ -4,6 +4,8 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use OZiTAG\Tager\Backend\HttpCache\HttpCacheMiddleware;
+use OZiTAG\Tager\Backend\HttpCache\Middleware\CacheHttp;
+use OZiTAG\Tager\Backend\HttpCache\Middleware\DoNotCacheHttp;
 
 class Kernel extends HttpKernel
 {
@@ -32,9 +34,6 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-        'api.cache' => [
-            HttpCacheMiddleware::class
-        ]
     ];
 
     /**
@@ -45,6 +44,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'api.cache' => CacheHttp::class,
+        'api.disable-cache' => DoNotCacheHttp::class,
         'passport' => \App\Http\Middleware\Passport::class,
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
