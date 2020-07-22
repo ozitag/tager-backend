@@ -185,6 +185,7 @@ return [
         OZiTAG\Tager\Backend\Menus\TagerBackendMenusServiceProvider::class,
         OZiTAG\Tager\Backend\Banners\TagerBackendBannersServiceProvider::class,
         OZiTAG\Tager\Backend\Pages\TagerBackendPagesServiceProvider::class,
+        OZiTAG\Tager\Backend\HttpCache\TagerBackendHttpCacheServiceProvider::class,
     ],
 
     /*
