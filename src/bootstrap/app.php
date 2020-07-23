@@ -38,7 +38,7 @@ $app->singleton(
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    OZiTAG\Tager\Backend\Core\ExceptionHandler::class
+    OZiTAG\Tager\Backend\Core\Exceptions\ExceptionHandler::class
 );
 
 /*

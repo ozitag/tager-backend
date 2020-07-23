@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-use OZiTAG\Tager\Backend\Core\Enum;
+use OZiTAG\Tager\Backend\Core\Enums\Enum;
 
 final class SettingKey extends Enum
 {
