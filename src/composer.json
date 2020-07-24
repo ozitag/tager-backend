@@ -13,6 +13,7 @@
         "ozitag/tager-backend-menus": "^1.2",
         "ozitag/tager-backend-banners": "^1.4",
         "ozitag/tager-backend-pages": "^1.1",
+        "ozitag/tager-backend-crud": "^1.0",
         "ozerich/laravel-filestorage-db": "^0.3"
     },
     "config": {
