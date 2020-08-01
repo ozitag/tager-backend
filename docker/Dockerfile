@@ -10,6 +10,10 @@ COPY /docker/nginx/10-general.conf /opt/docker/etc/nginx/vhost.common.d/10-gener
 
 FROM webdevops/php-nginx:7.4-alpine as production
 
+RUN docker-service-enable cron
+COPY /docker/backend-tager/cron/crontab /opt/docker/etc/cron/crontab
+RUN /usr/bin/crontab /opt/docker/etc/cron/crontab
+
 WORKDIR /var/www/app
 
 COPY /src/composer.json composer.json
@@ -23,3 +27,7 @@ COPY /docker/bootstrap.production.sh /opt/docker/provision/entrypoint.d/bootstra
 COPY /docker/supervisor/queue.conf /opt/docker/etc/supervisor.d/queue.conf
 COPY /docker/nginx/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
 COPY /docker/nginx/10-general.conf /opt/docker/etc/nginx/vhost.common.d/10-general.conf
+
+RUN docker-service-enable cron
+COPY /docker/backend-tager/cron/crontab /opt/docker/etc/cron/crontab
+RUN /usr/bin/crontab /opt/docker/etc/cron/crontab
