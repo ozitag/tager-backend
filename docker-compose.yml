@@ -19,7 +19,6 @@ services:
     extra_hosts:
       - "dockerhost:${LOCAL_IP}"
     environment:
-      CONTAINER_ROLE: fpm
       WEB_DOCUMENT_ROOT: /var/www/app/public
       PHP_MEMORY_LIMIT: 64M
       PHP_UPLOAD_MAX_FILESIZE: 64M
