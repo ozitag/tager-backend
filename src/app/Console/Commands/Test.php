@@ -2,23 +2,23 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
+use OZiTAG\Tager\Backend\Cron\Console\CronCommand;
 
-class Test extends Command
+class Test extends CronCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'tager:test';
+    protected $signature = 'tager:test {param=value}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Test Console Command';
+    protected $description = 'Test Tager Cron';
 
     /**
      * Execute the console command.
@@ -27,6 +27,13 @@ class Test extends Command
      */
     public function handle()
     {
+        $value = $this->argument('param');
 
+        $this->log('Command Start');
+        $this->log('Param = ' . $value);
+
+        sleep(1);
+
+        $this->log('Command End');
     }
 }
