@@ -65,6 +65,7 @@ return [
 
     'providers' => [
         'administrators' => [
+            'alias' => 'admin',
             'driver' => 'eloquent',
             'model' => \OZiTAG\Tager\Backend\Admin\Models\Administrator::class,
         ]
