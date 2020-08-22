@@ -6,14 +6,10 @@ chmod 777 -R storage
 
 composer i --ignore-platform-reqs
 
-php artisan cache:clear
-rm -fr bootstrap/cache/*
-php artisan optimize
+php artisan optimize:clear
 
 php artisan migrate --force
-php artisan tager:seo-flush
 php artisan tager:mail-flush
 php artisan tager:settings-flush
 php artisan tager:menus-flush
-php artisan tager:banners-flush
 php artisan tager:http-cache-clear

@@ -9,15 +9,14 @@ return [
     'defaultValidator' => ConfigHelper::defaultValidator(),
 
     'scenarios' => [
-        FileScenario::File => [
-            'storage' => ConfigHelper::fileStorage('zip')
+        FileScenario::OpenGraph => [
+            'storage' => ConfigHelper::fileStorage('content'),
+            'validator' => ConfigHelper::imageValidator(),
+            'thumbnail' => ConfigHelper::thumbOpenGraph()
         ],
-        FileScenario::Product => [
-            'storage' => ConfigHelper::fileStorage('products'),
-            'thumbnails' => [
-                Thumbnail::Preview => ConfigHelper::thumbWithWebpAnd2x(380, 250),
-                Thumbnail::OpenGraph => ConfigHelper::thumbOpenGraph(),
-            ]
+        FileScenario::Content => [
+            'storage' => ConfigHelper::fileStorage('content'),
+            'validator' => ConfigHelper::imageValidator(),
         ],
     ]
 ];
