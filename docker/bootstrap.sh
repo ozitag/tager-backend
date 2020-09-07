@@ -6,6 +6,7 @@ chmod 777 -R storage
 
 composer i --ignore-platform-reqs
 
+rm -rf bootstrap/cache/*
 php artisan optimize:clear
 
 php artisan migrate --force

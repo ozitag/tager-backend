@@ -4,6 +4,7 @@ cd /var/www/app/
 
 chmod 777 -R storage
 
+rm -rf bootstrap/cache/*
 php artisan optimize:clear
 
 php artisan migrate --force
