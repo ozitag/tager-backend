@@ -177,6 +177,8 @@ return [
 
         Ozerich\FileStorage\StorageServiceProvider::class,
         OZiTAG\Tager\Backend\Core\CoreServiceProvider::class,
+        OZiTAG\Tager\Backend\HttpCache\HttpCacheServiceProvider::class,
+        OZiTAG\Tager\Backend\Panel\PanelServiceProvider::class,
         OZiTAG\Tager\Backend\Auth\AuthServiceProvider::class,
         OZiTAG\Tager\Backend\Admin\AdminServiceProvider::class,
         OZiTAG\Tager\Backend\Cron\CronServiceProvider::class,
@@ -185,7 +187,6 @@ return [
         OZiTAG\Tager\Backend\Settings\SettingsServiceProvider::class,
         OZiTAG\Tager\Backend\Menus\MenusServiceProvider::class,
         OZiTAG\Tager\Backend\Pages\PagesServiceProvider::class,
-        OZiTAG\Tager\Backend\HttpCache\HttpCacheServiceProvider::class,
     ],
 
     /*
