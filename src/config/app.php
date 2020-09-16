@@ -171,9 +171,9 @@ return [
 
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        //App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+        App\Providers\TagerServiceProvider::class,
 
         Ozerich\FileStorage\StorageServiceProvider::class,
         OZiTAG\Tager\Backend\Core\CoreServiceProvider::class,

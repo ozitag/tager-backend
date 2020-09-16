@@ -10,6 +10,6 @@ return [
     ],
 
     'templates' => [
-        'home' => \App\Templates\HomeTemplate::class
+        'home' => \App\Tager\Templates\HomeTemplate::class
     ]
 ];

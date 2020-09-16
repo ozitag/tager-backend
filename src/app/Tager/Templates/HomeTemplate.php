@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Templates;
+namespace App\Tager\Templates;
 
 use OZiTAG\Tager\Backend\Pages\Structures\Template;
 
