@@ -181,9 +181,12 @@ return [
         OZiTAG\Tager\Backend\Panel\PanelServiceProvider::class,
         OZiTAG\Tager\Backend\Auth\AuthServiceProvider::class,
         OZiTAG\Tager\Backend\Admin\AdminServiceProvider::class,
+        OZiTAG\Tager\Backend\Administrators\AdministratorsServiceProvider::class,
+        OZiTAG\Tager\Backend\Rbac\RbacServiceProvider::class,
+        OZiTAG\Tager\Backend\Sentry\SentryServiceProvider::class,
+
         OZiTAG\Tager\Backend\Cron\CronServiceProvider::class,
         OZiTAG\Tager\Backend\Mail\MailServiceProvider::class,
-        OZiTAG\Tager\Backend\Sentry\SentryServiceProvider::class,
         OZiTAG\Tager\Backend\Settings\SettingsServiceProvider::class,
         OZiTAG\Tager\Backend\Menus\MenusServiceProvider::class,
         OZiTAG\Tager\Backend\Pages\PagesServiceProvider::class,

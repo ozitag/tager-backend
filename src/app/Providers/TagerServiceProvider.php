@@ -24,5 +24,9 @@ class TagerServiceProvider extends ServiceProvider
     public function boot()
     {
         // TagerPanel::registerRouteHandler('/catalog/(.+?)$', ProductRouteHandler::class);
+
+        /* TagerScopes::registerGroup('App', [
+            UsersScope::Base => 'App Base Scope',
+        ]); */
     }
 }
