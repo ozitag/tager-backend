@@ -4,7 +4,7 @@ cd /var/www/app/
 
 chmod 777 -R storage
 
-composer i --ignore-platform-reqs
+COMPOSER_MEMORY_LIMIT=-1 composer i --ignore-platform-reqs
 
 rm -rf bootstrap/cache/*
 php artisan optimize:clear
