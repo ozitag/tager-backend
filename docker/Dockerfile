@@ -10,7 +10,7 @@ COPY /docker/nginx/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10
 FROM webdevops/php-nginx:7.4-alpine as production
 
 RUN docker-service-enable cron
-COPY /docker/backend/cron/crontab /opt/docker/etc/cron/crontab
+COPY /docker/cron/crontab /opt/docker/etc/cron/crontab
 RUN /usr/bin/crontab /opt/docker/etc/cron/crontab
 
 WORKDIR /var/www/app
@@ -27,5 +27,5 @@ COPY /docker/supervisor/queue.conf /opt/docker/etc/supervisor.d/queue.conf
 COPY /docker/nginx/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
 
 RUN docker-service-enable cron
-COPY /docker/backend/cron/crontab /opt/docker/etc/cron/crontab
+COPY /docker/cron/crontab /opt/docker/etc/cron/crontab
 RUN /usr/bin/crontab /opt/docker/etc/cron/crontab
