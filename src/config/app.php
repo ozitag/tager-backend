@@ -173,7 +173,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
-        App\Providers\TagerServiceProvider::class,
+        App\Tager\TagerServiceProvider::class,
 
         Ozerich\FileStorage\StorageServiceProvider::class,
         OZiTAG\Tager\Backend\Core\CoreServiceProvider::class,

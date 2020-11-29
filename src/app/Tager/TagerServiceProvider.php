@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace App\Tager;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -24,6 +24,8 @@ class TagerServiceProvider extends ServiceProvider
     public function boot()
     {
         // TagerPanel::registerRouteHandler('/catalog/(.+?)$', ProductRouteHandler::class);
+
+        // TagerSitemap::registerHandler(ProductSitemapHandler::class);
 
         /* TagerScopes::registerGroup('App', [
             UsersScope::Base => 'App Base Scope',
