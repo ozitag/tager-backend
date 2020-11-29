@@ -190,6 +190,7 @@ return [
         OZiTAG\Tager\Backend\Settings\SettingsServiceProvider::class,
         OZiTAG\Tager\Backend\Menus\MenusServiceProvider::class,
         OZiTAG\Tager\Backend\Pages\PagesServiceProvider::class,
+        OZiTAG\Tager\Backend\Sitemap\SitemapServiceProvider::class,
     ],
 
     /*
