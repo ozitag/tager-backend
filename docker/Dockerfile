@@ -1,5 +1,5 @@
 # Reference: https://dockerfile.readthedocs.io/en/latest/content/DockerImages/dockerfiles/php-nginx.html
-FROM webdevops/php-nginx:7.4-alpine as dev
+FROM webdevops/php-nginx:8.0-alpine as dev
 
 WORKDIR /var/www/app
 
@@ -7,7 +7,7 @@ COPY /docker/bootstrap.sh /opt/docker/provision/entrypoint.d/bootstrap.sh
 COPY /docker/supervisor/queue.conf /opt/docker/etc/supervisor.d/queue.conf
 COPY /docker/nginx/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
 
-FROM webdevops/php-nginx:7.4-alpine as production
+FROM webdevops/php-nginx:8.0-alpine as production
 
 RUN docker-service-enable cron
 COPY /docker/cron/crontab /opt/docker/etc/cron/crontab
