@@ -6,11 +6,11 @@ WORKDIR /var/www/app
 COPY /docker/bootstrap.sh /opt/docker/provision/entrypoint.d/bootstrap.sh
 COPY /docker/supervisor/queue.conf /opt/docker/etc/supervisor.d/queue.conf
 COPY /docker/nginx/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
+COPY /docker/cron/crontab /opt/docker/etc/cron/crontab
 
 FROM webdevops/php-nginx:8.0-alpine as production
 
 RUN docker-service-enable cron
-COPY /docker/cron/crontab /opt/docker/etc/cron/crontab
 RUN /usr/bin/crontab /opt/docker/etc/cron/crontab
 
 WORKDIR /var/www/app
@@ -25,7 +25,7 @@ COPY /src .
 COPY /docker/bootstrap.production.sh /opt/docker/provision/entrypoint.d/bootstrap.sh
 COPY /docker/supervisor/queue.conf /opt/docker/etc/supervisor.d/queue.conf
 COPY /docker/nginx/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
+COPY /docker/cron/crontab /opt/docker/etc/cron/crontab
 
 RUN docker-service-enable cron
-COPY /docker/cron/crontab /opt/docker/etc/cron/crontab
 RUN /usr/bin/crontab /opt/docker/etc/cron/crontab
