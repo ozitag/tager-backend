@@ -2,6 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['namespace' => 'App\Http\Controllers', 'middleware' => 'api.cache'], function () {
+Route::group(['middleware' => 'api.cache'], function () {
 
 });
