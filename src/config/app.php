@@ -187,10 +187,11 @@ return [
 
         OZiTAG\Tager\Backend\Cron\CronServiceProvider::class,
         OZiTAG\Tager\Backend\Mail\MailServiceProvider::class,
-        OZiTAG\Tager\Backend\Settings\SettingsServiceProvider::class,
         OZiTAG\Tager\Backend\Menus\MenusServiceProvider::class,
         OZiTAG\Tager\Backend\Pages\PagesServiceProvider::class,
-        OZiTAG\Tager\Backend\Sitemap\SitemapServiceProvider::class,
+        OZiTAG\Tager\Backend\Settings\SettingsServiceProvider::class,
+        OZiTAG\Tager\Backend\Seo\SeoServiceProvider::class,
+        OZiTAG\Tager\Backend\Sitemap\SitemapServiceProvider::class
     ],
 
     /*
