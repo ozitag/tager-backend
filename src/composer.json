@@ -20,7 +20,6 @@
         "ozitag/tager-backend-utils": "^1.1",
         "ozitag/tager-backend-fields": "^1.0",
         "ozitag/tager-backend-panel": "^1.0",
-        "ozitag/tager-backend-sitemap": "^1.0",
         "ozitag/tager-backend-files": "^1.0",
         "ext-json": "*",
         "ext-curl": "*"

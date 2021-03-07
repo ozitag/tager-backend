@@ -25,7 +25,7 @@ class TagerServiceProvider extends ServiceProvider
     {
         // TagerPanel::registerRouteHandler('/catalog/(.+?)$', ProductRouteHandler::class);
 
-        // TagerSitemap::registerHandler(ProductSitemapHandler::class);
+        // TagerSeo::registerSitemapHandler(ProductSitemapHandler::class);
 
         /* TagerScopes::registerGroup('App', [
             UsersScope::Base => 'App Base Scope',
