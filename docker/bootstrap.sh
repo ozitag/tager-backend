@@ -2,7 +2,9 @@
 
 cd /var/www/app/
 
-chmod 777 -R storage
+find . -type f -exec chmod 644 {} \;
+find . -type d -exec chmod 755 {} \;
+chown 1000:1000 -R storage bootstrap/cache
 
 COMPOSER_MEMORY_LIMIT=-1 composer i --ignore-platform-reqs
 

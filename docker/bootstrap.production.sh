@@ -2,7 +2,9 @@
 
 cd /var/www/app/
 
-chmod 777 -R storage
+find . -type f -exec chmod 644 {} \;
+find . -type d -exec chmod 755 {} \;
+chown 1000:1000 -R storage bootstrap/cache
 
 rm -rf bootstrap/cache/*
 php artisan optimize:clear
