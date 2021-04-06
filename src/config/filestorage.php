@@ -10,9 +10,9 @@ return [
 
     'scenarios' => [
         FileScenario::OpenGraph => TagerImageScenario::wrap([
-            'storage' => ConfigHelper::fileStorage('content'),
-            'validator' => ConfigHelper::imageValidator(),
-            'thumbnail' => ConfigHelper::thumbOpenGraph()
+            'storage' => ConfigHelper::fileStorage('open-graph'),
+            'validator' => ConfigHelper::openGraphValidator(),
+            'thumbnail' => ConfigHelper::openGraphThumb()
         ]),
         FileScenario::Content => TagerImageScenario::wrap([
             'storage' => ConfigHelper::fileStorage('content'),
