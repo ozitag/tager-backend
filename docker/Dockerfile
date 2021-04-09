@@ -3,6 +3,8 @@ FROM webdevops/php-nginx:8.0-alpine as dev
 
 WORKDIR /var/www/app
 
+RUN apk add mysql-client
+
 COPY /docker/bootstrap.sh /opt/docker/provision/entrypoint.d/bootstrap.sh
 COPY /docker/supervisor/queue.conf /opt/docker/etc/supervisor.d/queue.conf
 COPY /docker/nginx/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
@@ -14,6 +16,8 @@ RUN /usr/bin/crontab /opt/docker/etc/cron/crontab
 FROM webdevops/php-nginx:8.0-alpine as production
 
 WORKDIR /var/www/app
+
+RUN apk add mysql-client
 
 COPY /src/composer.json composer.json
 COPY /src/composer.lock composer.lock
