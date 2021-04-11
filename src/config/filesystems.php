@@ -68,7 +68,7 @@ return [
             'driver' => 'sftp',
             'host' => env('AUTOBACKUP_SFTP_HOST'),
             'username' => env('AUTOBACKUP_SFTP_USER'),
-            'privateKey' => storage_path('autobackup'),
+            'privateKey' => storage_path('autobackup.key'),
 
             // 'port' => 22,
             // 'root' => '',
