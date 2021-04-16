@@ -184,6 +184,7 @@ return [
         OZiTAG\Tager\Backend\Administrators\AdministratorsServiceProvider::class,
         OZiTAG\Tager\Backend\Rbac\RbacServiceProvider::class,
         OZiTAG\Tager\Backend\Sentry\SentryServiceProvider::class,
+        OZiTAG\Tager\Backend\Files\FilesServiceProvider::class,
 
         OZiTAG\Tager\Backend\Cron\CronServiceProvider::class,
         OZiTAG\Tager\Backend\Mail\MailServiceProvider::class,
