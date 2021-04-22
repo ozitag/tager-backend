@@ -169,6 +169,8 @@ return [
          * Application Service Providers...
          */
 
+        Sentry\Laravel\ServiceProvider::class,
+
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
