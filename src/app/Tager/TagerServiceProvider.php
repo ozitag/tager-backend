@@ -4,6 +4,11 @@ namespace App\Tager;
 
 use Illuminate\Support\ServiceProvider;
 
+use OZiTAG\Tager\Backend\Menus\TagerMenus;
+use OZiTAG\Tager\Backend\Panel\TagerPanel;
+use OZiTAG\Tager\Backend\Seo\TagerSeo;
+use OZiTAG\Tager\Backend\Rbac\TagerScopes;
+
 class TagerServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +28,8 @@ class TagerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // TagerMenus::registerMenu('header', 'Header Menu');
+
         // TagerPanel::registerRouteHandler('/catalog/(.+?)$', ProductRouteHandler::class);
 
         // TagerSeo::registerSitemapHandler(ProductSitemapHandler::class);
