@@ -64,6 +64,17 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'sftp-backup' => [
+            'driver' => 'sftp',
+            'host' => env('AUTOBACKUP_SFTP_HOST'),
+            'username' => env('AUTOBACKUP_SFTP_USER'),
+            'privateKey' => storage_path('autobackup.key'),
+
+            // 'port' => 22,
+            // 'root' => '',
+            // 'timeout' => 30,
+        ],
+
     ],
 
     /*
