@@ -18,5 +18,10 @@ return [
             'storage' => ConfigHelper::fileStorage('content'),
             'validator' => ConfigHelper::imageValidator(),
         ]),
+        FileScenario::UserFile => [
+            'storage' => ConfigHelper::fileStorage('userfiles', 0),
+            'validator' => ConfigHelper::defaultValidator(100),
+            'saveOriginalFilename' => true
+        ],
     ]
 ];
