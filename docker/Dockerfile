@@ -1,5 +1,5 @@
 # Reference: https://dockerfile.readthedocs.io/en/latest/content/DockerImages/dockerfiles/php-nginx.html
-FROM webdevops/php-nginx:8.0-alpine as dev
+FROM webdevops/php-nginx:8.1-alpine as dev
 
 WORKDIR /var/www/app
 
@@ -13,7 +13,7 @@ COPY /docker/cron/crontab /opt/docker/etc/cron/crontab
 RUN docker-service-enable cron
 RUN /usr/bin/crontab /opt/docker/etc/cron/crontab
 
-FROM webdevops/php-nginx:8.0-alpine as production
+FROM webdevops/php-nginx:8.1-alpine as production
 
 WORKDIR /var/www/app
 
