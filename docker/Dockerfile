@@ -3,6 +3,9 @@ FROM webdevops/php-nginx:8.1-alpine as dev
 
 WORKDIR /var/www/app
 
+ENV TZ=Europe/Minsk
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN apk add mysql-client
 
 COPY /docker/bootstrap.sh /opt/docker/provision/entrypoint.d/bootstrap.sh
@@ -16,6 +19,9 @@ RUN /usr/bin/crontab /opt/docker/etc/cron/crontab
 FROM webdevops/php-nginx:8.1-alpine as production
 
 WORKDIR /var/www/app
+
+ENV TZ=Europe/Minsk
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apk add mysql-client
 
