@@ -2,9 +2,7 @@
 
 namespace App\Enums;
 
-use OZiTAG\Tager\Backend\Core\Enums\Enum;
-
-final class FileScenario extends Enum
+enum FileScenario:string
 {
     const OpenGraph = 'opengraph';
     const Content = 'content';

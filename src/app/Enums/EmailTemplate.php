@@ -2,9 +2,7 @@
 
 namespace App\Enums;
 
-use OZiTAG\Tager\Backend\Core\Enums\Enum;
-
-final class EmailTemplate extends Enum
+enum EmailTemplate:string
 {
     const Contact = 'Contact';
 }
