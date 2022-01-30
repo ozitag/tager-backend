@@ -4,7 +4,7 @@ namespace App\Enums;
 
 enum FileScenario:string
 {
-    const OpenGraph = 'opengraph';
-    const Content = 'content';
-    const UserFile = 'userfile';
+    case OpenGraph = 'opengraph';
+    case Content = 'content';
+    case UserFile = 'userfile';
 }
