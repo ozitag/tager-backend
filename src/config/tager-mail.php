@@ -3,7 +3,7 @@
 return [
     'debug' => env('TAGER_MAIL_DEBUG'),
     'templates' => [
-        \App\Enums\FileScenario::Contact => [
+        \App\Enums\FileScenario::Contact->value => [
             'name' => 'Contact form',
             'templateParams' => [
                 'name' => 'Name',

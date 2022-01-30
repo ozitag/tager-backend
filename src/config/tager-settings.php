@@ -5,7 +5,7 @@ use \OZiTAG\Tager\Backend\Fields\Enums\FieldType;
 
 return [
     'section' => [
-        SettingKey::TestSetting => [
+        SettingKey::TestSetting->value => [
             'type' => FieldType::String,
             'label' => 'Test Setting',
             'value' => 'Test Setting Value',
