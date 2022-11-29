@@ -1,7 +1,7 @@
 <?php
 
 use Ozerich\FileStorage\Utils\ConfigHelper;
-use OZiTAG\Tager\Backend\Files\Utils\TagerImageScenario;
+use OZiTAG\Tager\Backend\Admin\Utils\TagerImageScenario;
 use App\Enums\FileScenario;
 
 return [
