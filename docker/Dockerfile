@@ -1,41 +1,28 @@
-# Reference: https://dockerfile.readthedocs.io/en/latest/content/DockerImages/dockerfiles/php-nginx.html
-FROM webdevops/php-nginx:8.1-alpine as dev
-
-WORKDIR /var/www/app
-
-ENV TZ=Europe/Minsk
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-RUN apk add mysql-client
-
-COPY /docker/bootstrap.sh /opt/docker/provision/entrypoint.d/bootstrap.sh
-COPY /docker/supervisor/queue.conf /opt/docker/etc/supervisor.d/queue.conf
-COPY /docker/nginx/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
-COPY /docker/cron/crontab /opt/docker/etc/cron/crontab
-
-RUN docker-service-enable cron
-RUN /usr/bin/crontab /opt/docker/etc/cron/crontab
-
-FROM webdevops/php-nginx:8.1-alpine as production
-
-WORKDIR /var/www/app
-
-ENV TZ=Europe/Minsk
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-RUN apk add mysql-client
-
-COPY /src/composer.json composer.json
-COPY /src/composer.lock composer.lock
-
+FROM composer as builder
+WORKDIR /app
+COPY /backend/composer.lock ./composer.lock
+COPY /backend/composer.json ./composer.json
 RUN composer i  --ignore-platform-reqs
 
-COPY /src .
+FROM webdevops/php-nginx:8.2-alpine
 
-COPY /docker/bootstrap.production.sh /opt/docker/provision/entrypoint.d/bootstrap.sh
-COPY /docker/supervisor/queue.conf /opt/docker/etc/supervisor.d/queue.conf
-COPY /docker/nginx/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
-COPY /docker/cron/crontab /opt/docker/etc/cron/crontab
+ENV TZ=Europe/Warsaw
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# Should be enabled for backups which are done by PHP code
+# RUN apk add mysql-client
+
+WORKDIR /var/www/app
+
+COPY /backend .
+COPY --from=builder /app/vendor ./vendor
+
+COPY /docker/backend/supervisor/queue.conf /opt/docker/etc/supervisor.d/queue.conf
+COPY /docker/backend/nginx/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
+COPY /docker/backend/cron/crontab /opt/docker/etc/cron/crontab
+COPY /docker/backend/bootstrap.sh /opt/docker/provision/entrypoint.d/bootstrap.sh
 
 RUN docker-service-enable cron
 RUN /usr/bin/crontab /opt/docker/etc/cron/crontab
+
+RUN chown application:application -R /var/www/app
