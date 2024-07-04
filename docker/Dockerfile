@@ -4,7 +4,7 @@ COPY /backend/composer.lock ./composer.lock
 COPY /backend/composer.json ./composer.json
 RUN composer i  --ignore-platform-reqs
 
-FROM webdevops/php-nginx:8.2-alpine
+FROM webdevops/php-nginx:8.3-alpine
 
 ENV TZ=Europe/Warsaw
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
