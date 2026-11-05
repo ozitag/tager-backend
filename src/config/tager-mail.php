@@ -3,7 +3,7 @@
 return [
     'debug' => env('TAGER_MAIL_DEBUG'),
     'templates' => [
-        \App\Enums\FileScenario::Contact->value => [
+        \App\Enums\EmailTemplate::Contact->value => [
             'name' => 'Contact form',
             'templateParams' => [
                 'name' => 'Name',
@@ -12,9 +12,9 @@ return [
             ],
             'subject' => 'New contact form request',
             'body' => '<p><b>Name:</b> {{name}}</p><p><b>E-mail:</b> {{email}}</p><p><b>Message:</b> {{message}}</p>',
-            'recipients' => [
-                'v.ozierski@ozitag.com'
-            ],
+            'recipients' => array_filter(
+                explode(',', (string) env('TAGER_MAIL_CONTACT_RECIPIENTS', ''))
+            ),
         ]
     ]
 ];
